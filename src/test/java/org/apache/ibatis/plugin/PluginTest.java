@@ -43,6 +43,11 @@ class PluginTest {
   public static class AlwaysMapPlugin implements Interceptor {
     @Override
     public Object intercept(Invocation invocation) {
+      try {
+        System.out.println(invocation.proceed());
+      }catch (Exception e) {
+        e.printStackTrace();
+      }
       return "Always";
     }
 

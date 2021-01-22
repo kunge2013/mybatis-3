@@ -41,6 +41,7 @@ class OneManyColumnPrefixTest {
     }
 
     // populate in-memory database
+    sqlSessionFactory.getConfiguration().addInterceptor(new QueryInterceptor());
     BaseDataTest.runScript(sqlSessionFactory.getConfiguration().getEnvironment().getDataSource(),
         "org/apache/ibatis/submitted/annotion_many_one_add_columnprefix/CreateDB.sql");
   }
